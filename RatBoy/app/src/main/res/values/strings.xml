@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">RatBoy</string>
-    <string name="mensagem_inicial">Bem vindo ao app</string>
+    <string name="app_name">SoftWear</string>
+    <string name="action_buscar">Buscar</string>
+    <string name="action_share">Compartilhar</string>
+    <string name="action_atualizar">Atualizar</string>
+    <string name="action_adicionar">Adicionar</string>
+    <string name="action_config">Configurar</string>
 </resources>

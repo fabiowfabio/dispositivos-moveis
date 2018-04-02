@@ -9,18 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends DebugActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
-        ImageView imagem = (ImageView) findViewById(R.id.imagem_tela_inicial);
-        imagem.setImageResource(R.drawable.img_login);
-
-        TextView texto_inicial = (TextView) findViewById(R.id.textView);
-        texto_inicial.setText("Bem vindo!");
 
         Button botao = (Button) findViewById(R.id.botao_login);
         botao.setOnClickListener(clique_login());
@@ -29,11 +23,20 @@ public class MainActivity extends AppCompatActivity {
     protected View.OnClickListener clique_login() {
         return new View.OnClickListener() {
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Login efetuado com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show();
                 Intent it = new Intent(MainActivity.this, TelaInicialActivity.class);
-                startActivity(it);
+                startActivityForResult(it, 1);
             }
         };
-
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 1) {
+            String result = data.getStringExtra("result");
+            Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
 }
