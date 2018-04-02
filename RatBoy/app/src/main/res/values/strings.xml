@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RatBoy</string>
+    <string name="mensagem_inicial">Bem vindo ao app</string>
+</resources>
