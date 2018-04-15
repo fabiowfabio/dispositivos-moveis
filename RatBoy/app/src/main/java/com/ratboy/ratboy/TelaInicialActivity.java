@@ -76,6 +76,8 @@ public class TelaInicialActivity extends DebugActivity {
         } else if (id == R.id.action_buscar) {
             Toast.makeText(TelaInicialActivity.this, "Buscar", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.action_adicionar) {
+            Intent it = new Intent(TelaInicialActivity.this, TelaAdicionarActivity.class);
+            startActivityForResult(it, 1);
             Toast.makeText(TelaInicialActivity.this, "Adicionar", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.action_config) {
             Toast.makeText(TelaInicialActivity.this, "Configurar", Toast.LENGTH_SHORT).show();
