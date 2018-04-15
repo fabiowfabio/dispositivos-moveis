@@ -25,7 +25,8 @@
         </activity>
         <activity android:name=".DebugActivity" />
         <activity android:name=".TelaAdicionarActivity" />
-        <activity android:name=".TelaMenuInicial"></activity>
+        <activity android:name=".TelaMenuInicial" />
+        <activity android:name=".TelaListaProdutos"></activity>
     </application>
 
 </manifest>

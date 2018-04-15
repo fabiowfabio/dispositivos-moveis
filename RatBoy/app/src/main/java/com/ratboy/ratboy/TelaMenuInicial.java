@@ -19,6 +19,9 @@ public class TelaMenuInicial extends DebugActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_menu_inicial);
 
+        ImageButton camiseta = (ImageButton) findViewById(R.id.iconeCamiseta);
+        camiseta.setOnClickListener(cliqueCamiseta());
+
         ImageButton camera = (ImageButton) findViewById(R.id.iconeCamera);
         camera.setOnClickListener(cliqueCamera());
 
@@ -31,6 +34,16 @@ public class TelaMenuInicial extends DebugActivity {
 
     }
 
+    protected View.OnClickListener cliqueCamiseta() {
+        return new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent it = new Intent(TelaMenuInicial.this, TelaListaProdutos.class);
+                startActivityForResult(it, 1);
+            }
+        };
+    }
+
+
     protected View.OnClickListener cliqueCamera() {
         return new View.OnClickListener() {
             public void onClick(View view) {
@@ -39,8 +52,6 @@ public class TelaMenuInicial extends DebugActivity {
             }
         };
     }
-
-
 
 
     public View.OnClickListener cliqueSair() {
