@@ -24,7 +24,8 @@
                 android:value=".MainActivity" />
         </activity>
         <activity android:name=".DebugActivity" />
-        <activity android:name=".TelaAdicionarActivity"></activity>
+        <activity android:name=".TelaAdicionarActivity" />
+        <activity android:name=".TelaMenuInicial"></activity>
     </application>
 
 </manifest>

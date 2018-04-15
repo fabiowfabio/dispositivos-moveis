@@ -24,7 +24,7 @@ public class MainActivity extends DebugActivity {
         return new View.OnClickListener() {
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show();
-                Intent it = new Intent(MainActivity.this, TelaInicialActivity.class);
+                Intent it = new Intent(MainActivity.this, TelaMenuInicial.class);
                 startActivityForResult(it, 1);
             }
         };
