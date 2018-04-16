@@ -1,9 +1,11 @@
 package com.ratboy.ratboy;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -12,11 +14,20 @@ import android.widget.TextView;
 
 public class SimplesAdapter extends BaseAdapter {
 
-    public String [] listaProdutos = new String [] {
-            "Camiseta manga curta algodão com estampa",
-            "Camiseta manga curta algodão com bordado",
-            "Camiseta manga curta algodão com pedraria",
-            "Camiseta manga curta algodão com lantejoula",
+    public class Produto {
+        public String nome;
+        public int imagem;
+        public Produto (String nome, int imagem) {
+            this.nome = nome;
+            this.imagem = imagem;
+        }
+    }
+
+    public Produto [] listaProdutos = new Produto [] {
+            new Produto("Camiseta manga curta algodão com estampa", R.drawable.camiseta),
+            new Produto("Camiseta manga curta algodão com bordado", R.drawable.camiseta),
+            new Produto("Camiseta manga curta algodão com pedraria", R.drawable.camiseta),
+            new Produto("Camiseta manga curta algodão com lantejoula", R.drawable.camiseta),
     };
 
     Context contexto;
@@ -42,10 +53,13 @@ public class SimplesAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View convertView, ViewGroup parent) {
-        String produtos = listaProdutos[i];
-        TextView t = new TextView(contexto);
-        t.setText(produtos);
-        return t;
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        Produto produtos = listaProdutos[i];
+        View viewText = LayoutInflater.from(contexto) .inflate(R.layout.tela_inicial_itens, viewGroup, false);
+        TextView t = viewText.findViewById(R.id.listaCamisetas);
+        t.setText(produtos.nome);
+        ImageView imagem = viewText.findViewById(R.id.imagemCamiseta);
+        imagem.setImageResource(produtos.imagem);
+        return viewText;
     }
 }

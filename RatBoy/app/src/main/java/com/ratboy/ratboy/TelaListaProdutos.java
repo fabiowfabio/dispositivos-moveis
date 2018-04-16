@@ -20,7 +20,7 @@ public class TelaListaProdutos extends DebugActivity {
         lista.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(TelaListaProdutos.this, i, Toast.LENGTH_SHORT).show();
+                Toast.makeText(TelaListaProdutos.this, "clicou " + i, Toast.LENGTH_SHORT).show();
             }
         });
     }
