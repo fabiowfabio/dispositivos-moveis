@@ -43,14 +43,14 @@
         app:srcCompat="@drawable/ic_camera" />
 
     <ImageButton
-        android:id="@+id/iconeCompartilhar"
+        android:id="@+id/iconeCadeado"
         android:layout_width="137dp"
         android:layout_height="137dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="373dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_compartilhar" />
+        app:srcCompat="@drawable/ic_cadeado" />
 
     <ImageButton
         android:id="@+id/iconeSair"

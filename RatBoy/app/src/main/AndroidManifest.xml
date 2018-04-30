@@ -26,7 +26,12 @@
         <activity android:name=".DebugActivity" />
         <activity android:name=".TelaAdicionarActivity" />
         <activity android:name=".TelaMenuInicial" />
-        <activity android:name=".TelaListaProdutos"></activity>
+        <activity android:name=".TelaListaProdutos" />
+        <activity android:name=".Produto" />
+        <activity android:name=".ProdutoDB" />
+        <activity android:name=".ProdutoActivity" />
+        <activity android:name=".ProdutoAdapter" />
+        <activity android:name=".CadastroActivity"></activity>
     </application>
 
 </manifest>

@@ -25,10 +25,6 @@ public class TelaMenuInicial extends DebugActivity {
         ImageButton camera = (ImageButton) findViewById(R.id.iconeCamera);
         camera.setOnClickListener(cliqueCamera());
 
-        //ImageButton shareItem = (ImageButton) findViewById(R.id.iconeCompartilhar);
-        //ShareActionProvider share = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
-        //share.setShareIntent(getDefautIntent());
-
         ImageButton sair = (ImageButton) findViewById(R.id.iconeSair);
         sair.setOnClickListener(cliqueSair());
 
@@ -37,7 +33,7 @@ public class TelaMenuInicial extends DebugActivity {
     protected View.OnClickListener cliqueCamiseta() {
         return new View.OnClickListener() {
             public void onClick(View view) {
-                Intent it = new Intent(TelaMenuInicial.this, TelaListaProdutos.class);
+                Intent it = new Intent(TelaMenuInicial.this, CadastroActivity.class);
                 startActivityForResult(it, 1);
             }
         };
