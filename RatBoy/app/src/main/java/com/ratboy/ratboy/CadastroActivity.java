@@ -46,8 +46,10 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
     public View.OnClickListener cliqueSalvar() {
+        return new View.OnClickListener() {
 
-        return {
+            @Override
+            public void onClick(View view) {
             EditText codigoProduto = (EditText) findViewById(R.id.campoCodigoProduto);
             EditText descricaoProduto = (EditText) findViewById(R.id.campoDescricaoProduto);
             EditText precoProduto = (EditText) findViewById(R.id.campoPrecoProduto);
@@ -61,7 +63,7 @@ public class CadastroActivity extends AppCompatActivity {
             String textoObservacaoProduto = observacaoProduto.getText().toString();
 
             if (produto == null) {
-            produto = new Produto();
+                produto = new Produto();
             }
 
             produto.codigo = textoCodigoProduto;
@@ -81,8 +83,8 @@ public class CadastroActivity extends AppCompatActivity {
             setResult(Activity.RESULT_OK, returnIntent);
             finish();
 
+            }
         };
-
     }
 
 }

@@ -29,7 +29,7 @@ public class ProdutoDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int versaoAntiga, int versaoNova) {
-        // método para executar quando a versão do BD for alterasa
+        // método para executar quando a versão do BD for alterada
         if (versaoAntiga == 1 && versaoNova == 2) {
             db.execSQL("alter table produto add column latitude text;");
             db.execSQL("alter table produto add column longitude text;");
@@ -69,14 +69,14 @@ public class ProdutoDB extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         try{
             // criar delete from produto where _id = ?
-            int count = db.delete("cerveja", "_id=?", new String[]{String.valueOf(produto.id)});
+            int count = db.delete("produto", "_id=?", new String[]{String.valueOf(produto.id)});
             return count;
         } finally {
             db.close();
         }
     }
 
-    // retornar todas os produtos
+    // retornar todos os produtos
     public List<Produto> findAll() {
         SQLiteDatabase db =  getWritableDatabase();
         try {

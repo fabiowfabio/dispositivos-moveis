@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.net.Uri;
 
-//import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,20 +54,16 @@ public class ProdutoAdapter extends BaseAdapter {
         View viewText = LayoutInflater.from(context).inflate(R.layout.tela_inicial_itens, viewGroup, false);
         // Procura elementos de tela para atualizar
         TextView t = (TextView)viewText.findViewById(R.id.listaCamisetas);
-        //ImageView img = (ImageView)viewText.findViewById(R.id.imgCerveja);
       // atualiza valores da view
          ImageView img = (ImageView)viewText.findViewById(R.id.imagemCamiseta);
         Produto produto = listaProdutos.get(posicao);
-        t.setText(produto.codigo);
+        t.setText("Código: " + produto.codigo + "\n" +
+                "Descrição: " + produto.descricao + "\n" +
+                "Preço: R$"+ produto.preco + "\n" );
 
-         //if(!produto.isEmpty()) {
-            //Picasso.with(context).load(cerveja.imagem).into(img);
+        //if(!produto.imagem.isEmpty()) {
+            //Picasso.with(context).load(produto.imagem).into(img);
         //}
-
-
-        //Picasso.with(context).load(produto.imagem).into(img);
-
-
 
 
         return viewText;

@@ -31,7 +31,8 @@
         <activity android:name=".ProdutoDB" />
         <activity android:name=".ProdutoActivity" />
         <activity android:name=".ProdutoAdapter" />
-        <activity android:name=".CadastroActivity"></activity>
+        <activity android:name=".CadastroActivity" />
+        <activity android:name=".CameraActivity"></activity>
     </application>
 
 </manifest>

@@ -11,10 +11,16 @@ import android.support.v7.widget.ShareActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.graphics.Bitmap;
+import android.provider.MediaStore;
+
+import com.squareup.picasso.Picasso;
 
 
 public class ProdutoActivity extends AppCompatActivity {
@@ -34,6 +40,13 @@ public class ProdutoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produto);
 
+        Button botaoCamera = findViewById(R.id.botaoCamera);
+        botaoCamera.setOnClickListener(cliqueBotaoCamera());
+
+        Button botaoGaleria = findViewById(R.id.botaoGaleria);
+        botaoGaleria.setOnClickListener(cliqueBotaoGaleria());
+
+
         // recuperar objeto do produto da Intent
         Intent it = getIntent();
         // variável da classe
@@ -43,6 +56,8 @@ public class ProdutoActivity extends AppCompatActivity {
 
         // preecher campos do layout
 
+
+
         img = (ImageView)findViewById(R.id.imagemProduto);
         codigo = (TextView)findViewById(R.id.codigoProduto);
         descricao = (TextView) findViewById(R.id.descricaoProduto);
@@ -51,7 +66,6 @@ public class ProdutoActivity extends AppCompatActivity {
         observacao = (TextView)findViewById(R.id.observacaoProduto);
 
         setProduto();
-
     }
 
     private void setProduto() {
@@ -61,7 +75,38 @@ public class ProdutoActivity extends AppCompatActivity {
         preco.setText(Double.toString(produto.preco));
         quantidade.setText(produto.quantidade);
         observacao.setText(produto.observacao);
+    }
 
+    public View.OnClickListener cliqueBotaoCamera() {
+        return new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(takePictureIntent, 1);
+                }
+            }
+        };
+    }
+
+    public View.OnClickListener cliqueBotaoGaleria() {
+        return new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+            }
+        };
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            ImageView imagem = (ImageView) findViewById(R.id.imagemProduto);
+            imagem.setImageBitmap(imageBitmap);
+        }
     }
 
 

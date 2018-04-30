@@ -11,6 +11,7 @@ public class Produto implements Serializable{
     public String quantidade;
     public String fabricacao;
     public String observacao;
+    public String imagem;
 
     public Produto() {
 

@@ -5,4 +5,10 @@
     <string name="action_atualizar">Atualizar</string>
     <string name="action_adicionar">Adicionar</string>
     <string name="action_config">Configurar</string>
+
+    <string name="texto_usuario">Usuário</string>
+    <string name="texto_senha">Senha</string>
+    <string name="action_alterar">Alterar</string>
+    <string name="action_remover">Remover</string>
+
 </resources>
