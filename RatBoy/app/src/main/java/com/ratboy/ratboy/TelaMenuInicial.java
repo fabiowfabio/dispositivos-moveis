@@ -19,18 +19,18 @@ public class TelaMenuInicial extends DebugActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_menu_inicial);
 
-        ImageButton camiseta = (ImageButton) findViewById(R.id.iconeCamiseta);
-        camiseta.setOnClickListener(cliqueCamiseta());
+        ImageButton camiseta = (ImageButton) findViewById(R.id.iconeAdiciona);
+        camiseta.setOnClickListener(cliqueAdiciona());
 
-        ImageButton camera = (ImageButton) findViewById(R.id.iconeCamera);
-        camera.setOnClickListener(cliqueCamera());
+        ImageButton camera = (ImageButton) findViewById(R.id.iconePesquisa);
+        camera.setOnClickListener(cliquePesquisa());
 
-        ImageButton sair = (ImageButton) findViewById(R.id.iconeSair);
-        sair.setOnClickListener(cliqueSair());
+        Button botao = (Button) findViewById(R.id.botaoSair);
+        botao.setOnClickListener(cliqueSair());
 
     }
 
-    protected View.OnClickListener cliqueCamiseta() {
+    protected View.OnClickListener cliqueAdiciona() {
         return new View.OnClickListener() {
             public void onClick(View view) {
                 Intent it = new Intent(TelaMenuInicial.this, CadastroActivity.class);
@@ -39,8 +39,7 @@ public class TelaMenuInicial extends DebugActivity {
         };
     }
 
-
-    protected View.OnClickListener cliqueCamera() {
+    protected View.OnClickListener cliquePesquisa() {
         return new View.OnClickListener() {
             public void onClick(View view) {
                 Intent it = new Intent(TelaMenuInicial.this, TelaInicialActivity.class);
@@ -48,7 +47,6 @@ public class TelaMenuInicial extends DebugActivity {
             }
         };
     }
-
 
     public View.OnClickListener cliqueSair() {
         return new View.OnClickListener() {
