@@ -28,7 +28,7 @@ public class ProdutoActivity extends AppCompatActivity {
     private Produto produto;
     public static final int  RETORNO_ALTERA_ACTIVITY = 3;
 
-    ImageView img;
+    ImageView imagem;
     TextView codigo;
     TextView descricao;
     TextView preco;
@@ -58,7 +58,7 @@ public class ProdutoActivity extends AppCompatActivity {
 
 
 
-        img = (ImageView)findViewById(R.id.imagemProduto);
+        imagem = (ImageView)findViewById(R.id.imagemProduto);
         codigo = (TextView)findViewById(R.id.codigoProduto);
         descricao = (TextView) findViewById(R.id.descricaoProduto);
         preco = (TextView)findViewById(R.id.precoProduto);
@@ -97,6 +97,34 @@ public class ProdutoActivity extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
             }
         };
+    }
+
+    @Override
+    // Método para colocar o menu na ActionBar
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // inflar o menu na view
+        getMenuInflater().inflate(R.menu.menu_produto, menu);
+        return true;
+    }
+
+    // Tratar os eventos dos botões do menu
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_alterar) {
+            Toast.makeText(ProdutoActivity.this, "Alterar",Toast.LENGTH_SHORT).show();
+            Intent cadastroIt = new Intent(ProdutoActivity.this, CadastroActivity.class);
+            cadastroIt.putExtra("produto", produto);
+            startActivityForResult(cadastroIt, RETORNO_ALTERA_ACTIVITY);
+        } else if (id == R.id.action_remover) {
+            Toast.makeText(ProdutoActivity.this, "Remover", Toast.LENGTH_SHORT).show();
+            ProdutoDB produtoDB = new ProdutoDB(ProdutoActivity.this);
+            produtoDB.delete(produto);
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra("msg","Produto excluído com sucesso");
+            setResult(Activity.RESULT_OK, returnIntent);
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

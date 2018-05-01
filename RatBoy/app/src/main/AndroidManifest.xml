@@ -18,11 +18,19 @@
         </activity>
         <activity
             android:name=".TelaInicialActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".TelaMenuInicial">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".TelaMenuInicial" />
         </activity>
+
+        <activity android:name=".AlteracaoActivity"
+            android:parentActivityName=".TelaMenuInicial">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TelaMenuInicial"/>
+        </activity>
+
         <activity android:name=".DebugActivity" />
         <activity android:name=".TelaAdicionarActivity" />
         <activity android:name=".TelaMenuInicial" />
@@ -33,7 +41,8 @@
         <activity android:name=".ProdutoAdapter" />
         <activity android:name=".CadastroActivity" />
         <activity android:name=".CameraActivity" />
-        <activity android:name=".Prefs"></activity>
+        <activity android:name=".Prefs" />
+
     </application>
 
 </manifest>
