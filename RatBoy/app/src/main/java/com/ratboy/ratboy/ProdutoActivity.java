@@ -2,6 +2,7 @@ package com.ratboy.ratboy;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -83,7 +84,11 @@ public class ProdutoActivity extends AppCompatActivity {
         preco.setText(Double.toString(produto.preco));
         quantidade.setText(produto.quantidade);
         observacao.setText(produto.observacao);
-        //imagem.setImageBitmap(bitmap.);
+
+        if(produto.imagem != null) {
+            imagem.setImageBitmap(BitmapFactory.decodeByteArray(produto.imagem, 0, produto.imagem.length));
+        }
+
     }
 
 
