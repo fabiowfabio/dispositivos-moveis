@@ -13,7 +13,7 @@ import java.util.List;
 public class ProdutoDB extends SQLiteOpenHelper {
 
     public static final String NOME_BANCO = "softwear.sqlite";
-    public static final int VERSAO_BANCO = 1;
+    public static final int VERSAO_BANCO = 2;
 
     public ProdutoDB(Context context){
          super(context, NOME_BANCO, null, VERSAO_BANCO);
@@ -31,8 +31,7 @@ public class ProdutoDB extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int versaoAntiga, int versaoNova) {
         // método para executar quando a versão do BD for alterada
         if (versaoAntiga == 1 && versaoNova == 2) {
-            db.execSQL("alter table produto add column latitude text;");
-            db.execSQL("alter table produto add column longitude text;");
+            db.execSQL("alter table produto add column imagem BLOB;");
         }
     }
 
@@ -47,6 +46,7 @@ public class ProdutoDB extends SQLiteOpenHelper {
             values.put("preco", produto.preco);
             values.put("quantidade", produto.quantidade);
             values.put("observacao", produto.observacao);
+            values.put("imagem", produto.imagem);
 
             if (id != 0) {
                 String _id = String.valueOf(id);
@@ -101,6 +101,7 @@ public class ProdutoDB extends SQLiteOpenHelper {
                 produto.preco = c.getDouble(c.getColumnIndex("preco"));
                 produto.quantidade = c.getString(c.getColumnIndex("quantidade"));
                 produto.observacao = c.getString(c.getColumnIndex("observacao"));
+                produto.imagem = c.getBlob(c.getColumnIndex("imagem"));
 
             } while (c.moveToNext());
         }

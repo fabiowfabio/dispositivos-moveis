@@ -28,8 +28,8 @@ public class TelaMenuInicial extends DebugActivity {
         ImageButton altera = (ImageButton) findViewById(R.id.iconeAltera);
         altera.setOnClickListener(cliqueAltera());
 
-        Button botao = (Button) findViewById(R.id.botaoSair);
-        botao.setOnClickListener(cliqueSair());
+        ImageButton sair = (ImageButton) findViewById(R.id.iconeSair);
+        sair.setOnClickListener(cliqueSair());
 
     }
 

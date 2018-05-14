@@ -22,6 +22,8 @@ import android.provider.MediaStore;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
+
 
 public class ProdutoActivity extends AppCompatActivity {
 
@@ -35,6 +37,8 @@ public class ProdutoActivity extends AppCompatActivity {
     TextView quantidade;
     TextView observacao;
 
+    byte [] byteImages;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,9 @@ public class ProdutoActivity extends AppCompatActivity {
 
         Button botaoGaleria = findViewById(R.id.botaoGaleria);
         botaoGaleria.setOnClickListener(cliqueBotaoGaleria());
+
+        Button botaoSalvaimagem = findViewById(R.id.botaoSalvarImagem);
+        botaoSalvaimagem.setOnClickListener(cliqueBotaoSalvaImagem());
 
 
         // recuperar objeto do produto da Intent
@@ -64,6 +71,7 @@ public class ProdutoActivity extends AppCompatActivity {
         preco = (TextView)findViewById(R.id.precoProduto);
         quantidade = (TextView)findViewById(R.id.quantidadeProduto);
         observacao = (TextView)findViewById(R.id.observacaoProduto);
+        //imagem = findViewById(R.id.imagemProduto);
 
         setProduto();
     }
@@ -75,7 +83,10 @@ public class ProdutoActivity extends AppCompatActivity {
         preco.setText(Double.toString(produto.preco));
         quantidade.setText(produto.quantidade);
         observacao.setText(produto.observacao);
+        //imagem.setImageBitmap(bitmap.);
     }
+
+
 
     public View.OnClickListener cliqueBotaoCamera() {
         return new View.OnClickListener() {
@@ -98,6 +109,21 @@ public class ProdutoActivity extends AppCompatActivity {
             }
         };
     }
+
+    protected View.OnClickListener cliqueBotaoSalvaImagem() {
+        return new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                produto.imagem = byteImages;
+                ProdutoDB db= new ProdutoDB(ProdutoActivity.this);
+                db.save(produto);
+                finish();
+            }
+        };
+    }
+
+
 
     @Override
     // Método para colocar o menu na ActionBar
@@ -132,10 +158,14 @@ public class ProdutoActivity extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byteImages = stream.toByteArray();
             ImageView imagem = (ImageView) findViewById(R.id.imagemProduto);
             imagem.setImageBitmap(imageBitmap);
         }
     }
+
 
 
 

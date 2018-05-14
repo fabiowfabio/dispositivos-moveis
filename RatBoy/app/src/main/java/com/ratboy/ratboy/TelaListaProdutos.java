@@ -23,5 +23,9 @@ public class TelaListaProdutos extends DebugActivity {
                 Toast.makeText(TelaListaProdutos.this, "clicou " + i, Toast.LENGTH_SHORT).show();
             }
         });
+
     }
+
+
+
 }

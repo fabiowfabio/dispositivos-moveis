@@ -59,8 +59,14 @@ public class ProdutoAdapter extends BaseAdapter {
         Produto produto = listaProdutos.get(posicao);
         t.setText("Código: " + produto.codigo + "\n" +
                 "Descrição: " + produto.descricao + "\n" +
-                "Preço: R$"+ produto.preco + "\n" );
+                "Preço: R$" + produto.preco + "\n" +
+                "Quantidade: " + produto.quantidade + "\n" +
+                "Observação: " + produto.observacao);
 
+        if(produto.imagem != null) {
+            Bitmap map = BitmapFactory.decodeByteArray(produto.imagem, 0, produto.imagem.length);
+            img.setImageBitmap(map);
+        }
         //if(!produto.imagem.isEmpty()) {
             //Picasso.with(context).load(produto.imagem).into(img);
         //}

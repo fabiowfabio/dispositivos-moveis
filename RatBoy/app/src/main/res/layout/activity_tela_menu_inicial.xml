@@ -24,7 +24,7 @@
         android:layout_width="137dp"
         android:layout_height="137dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="176dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_adicionar" />
@@ -34,32 +34,30 @@
         android:layout_width="137dp"
         android:layout_height="137dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="176dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_pesquisar" />
-
-    <Button
-        android:id="@+id/botaoSair"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Sair"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageButton
         android:id="@+id/iconeAltera"
         android:layout_width="137dp"
         android:layout_height="137dp"
         android:layout_marginEnd="232dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="372dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_altera" />
+        app:srcCompat="@drawable/ic_edita" />
+
+    <ImageButton
+        android:id="@+id/iconeSair"
+        android:layout_width="137dp"
+        android:layout_height="137dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="372dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_sair" />
 
 
 </android.support.constraint.ConstraintLayout>
