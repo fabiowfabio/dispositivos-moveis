@@ -146,7 +146,7 @@ public class TelaInicialActivity extends DebugActivity {
     private void buscaProdutos(String query) {
         List<Produto> results = new ArrayList<Produto>();
         for (Produto produto: produtos) {
-            if(produto.descricao.toLowerCase().contains(query)){
+            if(produto.descricao.toLowerCase().contains(query) || produto.codigo.contains(query)){
                 results.add(produto);
             }
         }

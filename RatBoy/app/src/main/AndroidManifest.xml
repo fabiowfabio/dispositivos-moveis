@@ -6,6 +6,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:gravity="center"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -31,15 +32,31 @@
                 android:value=".TelaMenuInicial"/>
         </activity>
 
+        <activity
+            android:name=".CadastroActivity"
+            android:parentActivityName=".TelaMenuInicial">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TelaMenuInicial" />
+        </activity>
+
+        <activity
+            android:name=".ProdutoActivity"
+            android:parentActivityName=".TelaMenuInicial">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TelaMenuInicial" />
+        </activity>
+
+
+
         <activity android:name=".DebugActivity" />
         <activity android:name=".TelaAdicionarActivity" />
         <activity android:name=".TelaMenuInicial" />
         <activity android:name=".TelaListaProdutos" />
         <activity android:name=".Produto" />
         <activity android:name=".ProdutoDB" />
-        <activity android:name=".ProdutoActivity" />
         <activity android:name=".ProdutoAdapter" />
-        <activity android:name=".CadastroActivity" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".Prefs" />
 

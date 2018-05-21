@@ -33,7 +33,7 @@ public class AlteracaoActivity extends DebugActivity {
         setContentView(R.layout.activity_alteracao);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Início");
+        actionBar.setTitle("Lista de produtos");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

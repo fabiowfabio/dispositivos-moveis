@@ -66,10 +66,10 @@
 
     <ImageView
         android:id="@+id/imagemProduto"
-        android:layout_width="99dp"
-        android:layout_height="104dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="312dp"
+        android:layout_width="155dp"
+        android:layout_height="208dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="260dp"
         android:src="@drawable/smile2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

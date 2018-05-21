@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.net.Uri;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -54,6 +56,12 @@ public class ProdutoActivity extends AppCompatActivity {
         Button botaoSalvaimagem = findViewById(R.id.botaoSalvarImagem);
         botaoSalvaimagem.setOnClickListener(cliqueBotaoSalvaImagem());
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Produto");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
         // recuperar objeto do produto da Intent
         Intent it = getIntent();
@@ -79,11 +87,11 @@ public class ProdutoActivity extends AppCompatActivity {
 
     private void setProduto() {
         //Picasso.with(ProdutoActivity.this).load(produto.imagem).into(img);
-        codigo.setText(produto.codigo);
-        descricao.setText(produto.descricao);
-        preco.setText(Double.toString(produto.preco));
-        quantidade.setText(produto.quantidade);
-        observacao.setText(produto.observacao);
+        codigo.setText("Código: " + produto.codigo);
+        descricao.setText("Descrição: " + produto.descricao);
+        preco.setText("Preço: R$" + Double.toString(produto.preco));
+        quantidade.setText("Quantidade: " + produto.quantidade);
+        observacao.setText( "Observação: " + produto.observacao);
 
         if(produto.imagem != null) {
             imagem.setImageBitmap(BitmapFactory.decodeByteArray(produto.imagem, 0, produto.imagem.length));
@@ -110,7 +118,7 @@ public class ProdutoActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+                startActivityForResult(intent, 2);
             }
         };
     }
@@ -168,6 +176,23 @@ public class ProdutoActivity extends AppCompatActivity {
             byteImages = stream.toByteArray();
             ImageView imagem = (ImageView) findViewById(R.id.imagemProduto);
             imagem.setImageBitmap(imageBitmap);
+        }
+
+        if (requestCode == 2 && resultCode == RESULT_OK) {
+            Uri extras = data.getData();
+            try {
+                Bitmap imageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), extras);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byteImages = stream.toByteArray();
+                ImageView imagem = (ImageView) findViewById(R.id.imagemProduto);
+                imagem.setImageBitmap(imageBitmap);
+            }
+            catch(Exception ex){
+
+            }
+
+
         }
     }
 

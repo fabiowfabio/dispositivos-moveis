@@ -3,6 +3,7 @@ package com.ratboy.ratboy;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +25,17 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        Button botao = (Button) findViewById(R.id.botaoSalvar);
-        botao.setOnClickListener(cliqueSalvar());
+        Button botaoSalvar = (Button) findViewById(R.id.botaoSalvar);
+        botaoSalvar.setOnClickListener(cliqueSalvar());
+
+        Button botaoCancelar = (Button) findViewById(R.id.botaoCancelar);
+        botaoCancelar.setOnClickListener(cliqueCancelar());
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Cadastro de produto");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         Intent cadastroIt = getIntent();
         Serializable produtoS = cadastroIt.getSerializableExtra("produto");
@@ -86,6 +96,17 @@ public class CadastroActivity extends AppCompatActivity {
             }
         };
     }
+
+    public View.OnClickListener cliqueCancelar() {
+        return new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent it = new Intent(CadastroActivity.this, CadastroActivity.class);
+                finish();
+                startActivityForResult(it, 1);
+            }
+        };
+    }
+
 
 }
 

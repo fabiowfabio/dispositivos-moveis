@@ -22,13 +22,11 @@ public class TelaMenuInicial extends DebugActivity {
         ImageButton camiseta = (ImageButton) findViewById(R.id.iconeAdiciona);
         camiseta.setOnClickListener(cliqueAdiciona());
 
-        ImageButton camera = (ImageButton) findViewById(R.id.iconePesquisa);
-        camera.setOnClickListener(cliquePesquisa());
 
         ImageButton altera = (ImageButton) findViewById(R.id.iconeAltera);
         altera.setOnClickListener(cliqueAltera());
 
-        ImageButton sair = (ImageButton) findViewById(R.id.iconeSair);
+        Button sair = (Button) findViewById(R.id.botaoSair);
         sair.setOnClickListener(cliqueSair());
 
     }
@@ -42,14 +40,7 @@ public class TelaMenuInicial extends DebugActivity {
         };
     }
 
-    protected View.OnClickListener cliquePesquisa() {
-        return new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent it = new Intent(TelaMenuInicial.this, TelaInicialActivity.class);
-                startActivityForResult(it, 1);
-            }
-        };
-    }
+
 
     protected View.OnClickListener cliqueAltera() {
         return new View.OnClickListener() {

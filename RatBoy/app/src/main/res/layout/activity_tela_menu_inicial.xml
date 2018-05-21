@@ -23,41 +23,33 @@
         android:id="@+id/iconeAdiciona"
         android:layout_width="137dp"
         android:layout_height="137dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="248dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_adicionar" />
 
     <ImageButton
-        android:id="@+id/iconePesquisa"
-        android:layout_width="137dp"
-        android:layout_height="137dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="176dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_pesquisar" />
-
-    <ImageButton
         android:id="@+id/iconeAltera"
         android:layout_width="137dp"
         android:layout_height="137dp"
-        android:layout_marginEnd="232dp"
-        android:layout_marginTop="372dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginTop="248dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_edita" />
 
-    <ImageButton
-        android:id="@+id/iconeSair"
-        android:layout_width="137dp"
-        android:layout_height="137dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginTop="372dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_sair" />
+    <Button
+        android:id="@+id/botaoSair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Sair"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

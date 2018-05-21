@@ -2,8 +2,10 @@ package com.ratboy.ratboy;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,6 +19,10 @@ public class MainActivity extends DebugActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Softwear Automação Comercial");
+
 
         ImageView imagem = (ImageView) findViewById(R.id.imagemLogin);
         imagem.setImageResource(R.drawable.img_login);
