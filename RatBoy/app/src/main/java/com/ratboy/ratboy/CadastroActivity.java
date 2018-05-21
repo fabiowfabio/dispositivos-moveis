@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -25,11 +26,11 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        Button botaoSalvar = (Button) findViewById(R.id.botaoSalvar);
-        botaoSalvar.setOnClickListener(cliqueSalvar());
+        ImageButton salva = findViewById(R.id.iconeConfirma);
+        salva.setOnClickListener(cliqueBotaoSalva());
 
-        Button botaoCancelar = (Button) findViewById(R.id.botaoCancelar);
-        botaoCancelar.setOnClickListener(cliqueCancelar());
+        ImageButton cancela = findViewById(R.id.iconeCancela);
+        cancela.setOnClickListener(cliqueBotaoCancela());
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Cadastro de produto");
@@ -55,7 +56,7 @@ public class CadastroActivity extends AppCompatActivity {
         }
     }
 
-    public View.OnClickListener cliqueSalvar() {
+    public View.OnClickListener cliqueBotaoSalva() {
         return new View.OnClickListener() {
 
             @Override
@@ -97,7 +98,7 @@ public class CadastroActivity extends AppCompatActivity {
         };
     }
 
-    public View.OnClickListener cliqueCancelar() {
+    public View.OnClickListener cliqueBotaoCancela() {
         return new View.OnClickListener() {
             public void onClick(View view) {
                 Intent it = new Intent(CadastroActivity.this, CadastroActivity.class);

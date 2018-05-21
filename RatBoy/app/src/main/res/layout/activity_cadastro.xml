@@ -86,25 +86,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/botaoSalvar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="460dp"
-        android:text="Salvar"
+    <ImageButton
+        android:id="@+id/iconeConfirma"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="504dp"
+        android:src="@drawable/ic_salvar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/botaoCancelar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="72dp"
-        android:layout_marginTop="460dp"
-        android:text="Cancelar"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageButton
+        android:id="@+id/iconeCancela"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="222dp"
+        android:layout_marginTop="504dp"
+        android:src="@drawable/ic_cancela"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/observacaoProduto"

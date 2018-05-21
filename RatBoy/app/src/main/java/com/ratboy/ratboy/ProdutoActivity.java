@@ -47,14 +47,17 @@ public class ProdutoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produto);
 
-        Button botaoCamera = findViewById(R.id.botaoCamera);
-        botaoCamera.setOnClickListener(cliqueBotaoCamera());
+        ImageButton camera = findViewById(R.id.iconeCamera);
+        camera.setOnClickListener(cliqueBotaoCamera());
 
-        Button botaoGaleria = findViewById(R.id.botaoGaleria);
-        botaoGaleria.setOnClickListener(cliqueBotaoGaleria());
+        ImageButton galeria = findViewById(R.id.iconeGaleria);
+        galeria.setOnClickListener(cliqueBotaoGaleria());
 
-        Button botaoSalvaimagem = findViewById(R.id.botaoSalvarImagem);
-        botaoSalvaimagem.setOnClickListener(cliqueBotaoSalvaImagem());
+        ImageButton salva = findViewById(R.id.iconeConfirma);
+        salva.setOnClickListener(cliqueBotaoSalva());
+
+        ImageButton cancela = findViewById(R.id.iconeCancela);
+        cancela.setOnClickListener(cliqueBotaoCancela());
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Produto");
@@ -123,7 +126,7 @@ public class ProdutoActivity extends AppCompatActivity {
         };
     }
 
-    protected View.OnClickListener cliqueBotaoSalvaImagem() {
+    protected View.OnClickListener cliqueBotaoSalva() {
         return new View.OnClickListener(){
 
             @Override
@@ -136,6 +139,14 @@ public class ProdutoActivity extends AppCompatActivity {
         };
     }
 
+    public View.OnClickListener cliqueBotaoCancela() {
+        return new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent it = new Intent(ProdutoActivity.this, ProdutoActivity.class);
+                finish();
+            }
+        };
+    }
 
 
     @Override
